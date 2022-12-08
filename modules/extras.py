@@ -153,7 +153,7 @@ def run_modelmerger(id_task, primary_model_name, secondary_model_name, tertiary_
                 continue
 
             if 'model' in key:
-                if key in theta_2:
+                if theta_2 is not None and key in theta_2:
                     t2 = theta_2.get(key, torch.zeros_like(theta_1[key]))
                     theta_1[key] = theta_func1(theta_1[key], t2)
                 else:
